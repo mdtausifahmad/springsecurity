@@ -23,6 +23,9 @@ Notes-
    b. token based
    c. certificate based
 
+5. In memory Authentication
+
+
     
     
     

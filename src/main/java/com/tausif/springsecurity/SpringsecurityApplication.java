@@ -23,9 +23,17 @@ public class SpringsecurityApplication {
     InitializingBean initializer(UserDetailsManager manager){
         return () -> {
             UserDetails tausif = User.withDefaultPasswordEncoder()
-                                     .username("tausif").password("password").roles("USER").build();
+                    .username("tausif")
+                    .password("password")
+                    .roles("USER")
+                    .build();
 
-            UserDetails ahmad = User.withUserDetails(tausif).username("ahmad").build();
+            manager.createUser(tausif);
+
+            UserDetails ahmad = User.withUserDetails(tausif)
+                    .username("ahmad")
+                    .build();
+            manager.createUser(ahmad);
         };
     }
 
